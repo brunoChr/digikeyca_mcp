@@ -68,6 +68,8 @@ if [ -n "$CLIENT_ID" ]; then
     else
         echo "  USE_SANDBOX: false (production mode)" >&2
     fi
+    echo "  LOCALE_SITE: ${DIGIKEY_LOCALE_SITE:-CA}" >&2
+    echo "  LOCALE_CURRENCY: ${DIGIKEY_LOCALE_CURRENCY:-CAD}" >&2
     echo "" >&2
 fi
 

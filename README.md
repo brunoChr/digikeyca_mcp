@@ -152,6 +152,23 @@ Edit `~/.claude.json`:
 - Restart Claude after saving configuration
 - Verify in Claude Code with `/mcp` command
 
+### Locale / Region Settings
+
+By default the server targets **digikey.ca** (Canadian pricing in CAD). You can override with environment variables:
+
+| Variable | Default | Description |
+|---|---|---|
+| `DIGIKEY_LOCALE_SITE` | `CA` | DigiKey regional site (`CA`, `US`, `UK`, etc.) |
+| `DIGIKEY_LOCALE_CURRENCY` | `CAD` | Currency for prices (`CAD`, `USD`, etc.) |
+| `DIGIKEY_LOCALE_LANGUAGE` | `en` | Language (`en`, `fr`) |
+
+To switch back to US pricing, add these to your `env` block:
+
+```json
+"DIGIKEY_LOCALE_SITE": "US",
+"DIGIKEY_LOCALE_CURRENCY": "USD"
+```
+
 ---
 
 ## Available Tools
