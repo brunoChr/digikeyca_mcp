@@ -20,6 +20,9 @@ CLIENT_ID = os.getenv("CLIENT_ID")
 CLIENT_SECRET = os.getenv("CLIENT_SECRET")
 # USE_SANDBOX: "true" means use sandbox, "false" or unset means use production
 USE_SANDBOX = os.getenv("USE_SANDBOX", "false").lower() == "true"
+LOCALE_SITE     = os.getenv("DIGIKEY_LOCALE_SITE",     "CA")
+LOCALE_LANGUAGE = os.getenv("DIGIKEY_LOCALE_LANGUAGE", "en")
+LOCALE_CURRENCY = os.getenv("DIGIKEY_LOCALE_CURRENCY", "CAD")
 
 # DigiKey OAuth2 token endpoint
 if USE_SANDBOX:
@@ -93,9 +96,9 @@ def _get_headers(customer_id: str = "0"):
         "Authorization": f"Bearer {token_manager.get_token()}",
         "X-DIGIKEY-Client-Id": CLIENT_ID,
         "Content-Type": "application/json",
-        "X-DIGIKEY-Locale-Site": "US",
-        "X-DIGIKEY-Locale-Language": "en",
-        "X-DIGIKEY-Locale-Currency": "USD",
+        "X-DIGIKEY-Locale-Site": LOCALE_SITE,
+        "X-DIGIKEY-Locale-Language": LOCALE_LANGUAGE,
+        "X-DIGIKEY-Locale-Currency": LOCALE_CURRENCY,
         "X-DIGIKEY-Customer-Id": customer_id,
     }
 
